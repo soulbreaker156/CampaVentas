@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@import 'datatables.net-dt';
+
+
+:root {
+    --font-karla: 'Karla', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    * {
+        @apply box-border m-0 ;
+    }
+
+    body {
+        @apply bg-white text-black h-full box-border m-0;
+        font-family: "Karla", sans-serif;
+    }
+}
