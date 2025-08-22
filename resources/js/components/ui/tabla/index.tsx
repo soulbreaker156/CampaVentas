@@ -30,11 +30,12 @@ function Tabla({ datos }: TablaProps) {
     const celdaCSV = (str: string) => `"${str.replace(/"/g, '""')}"`;
     const exportarEnCsv = (): void => {
         const BOM = '\uFEFF';
-
+        //para Poner el nombre de la columna segun si viene de campañas o ventas
+        const columnaTotales = datos[0].totalOrdenes !== undefined ? 'Total de Ordenes' : 'Total de Ventas';
         const csvContent =
             BOM +
             [
-                'Campaña;Sector;Año;OrdenesTotales',
+                `Campaña;Sector;Año;${columnaTotales}`,
                 ...datos.map(
                     (d) =>
                         `${celdaCSV(d.sector.campania.campania)};` +
@@ -47,7 +48,7 @@ function Tabla({ datos }: TablaProps) {
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.setAttribute('download', 'ReporteCampañas.csv');
+        link.setAttribute('download', datos[0].totalOrdenes !== undefined ? 'ReporteCampañas.csv' : 'ReporteVentas.csv');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

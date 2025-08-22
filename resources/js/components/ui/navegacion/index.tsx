@@ -37,7 +37,7 @@ function Navegacion() {
             <div>
                 <ul className=" h-[9vh] flex gap-3 text-[25px] items-center">
                     <li><Link href="/campañas">Campañas</Link></li>
-                    <li><a href="#">Ventas</a></li>
+                    <li><Link href="/ventas">Ventas</Link></li>
                     <li><button onClick={cerrarSesion} className=" cursor-pointer">Cerrar Sesión</button></li>
                 </ul>
             </div>

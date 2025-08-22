@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CampanasController;
 use App\Http\Middleware\VerificarAutenticacion;
+use App\Http\Controllers\VentasController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -16,6 +17,7 @@ Route::get('/sinAcceso',function(){
 
 Route::middleware([VerificarAutenticacion::class])->group(function () {
 Route::get('/campañas', [CampanasController::class, 'index'])->name('Dashboard');
+Route::get('/ventas', [VentasController::class, 'index'])->name('Ventas');
 });
 
 Route::post('/logout',[LoginController::class,'logout']);
