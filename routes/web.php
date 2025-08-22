@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CampanasController;
 use App\Http\Middleware\VerificarAutenticacion;
 use Inertia\Inertia;
 
@@ -14,7 +15,7 @@ Route::get('/sinAcceso',function(){
 })->name('sin.acceso');
 
 Route::middleware([VerificarAutenticacion::class])->group(function () {
-Route::get('/dashboard', [LoginController::class, 'index'])->name('Dashboard');
+Route::get('/campañas', [CampanasController::class, 'index'])->name('Dashboard');
 });
 
 Route::post('/logout',[LoginController::class,'logout']);

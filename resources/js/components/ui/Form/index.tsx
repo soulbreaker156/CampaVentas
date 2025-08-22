@@ -1,7 +1,8 @@
 import Swal from 'sweetalert2';
 import { useForm,usePage} from '@inertiajs/react';
 import {Inertia} from '@inertiajs/inertia';
-import { useEffect } from 'react';  
+import { useEffect } from 'react';
+import {Link} from '@inertiajs/react';  
 
 
 export default function Input() {
@@ -25,7 +26,7 @@ export default function Input() {
           text: flash?.message,
           icon: flash?.icon
         }).then(() => {
-          Inertia.visit('/dashboard');
+          Inertia.visit('/campañas');
         });
       }else if(flash?.icon === 'error'){
         Swal.fire({

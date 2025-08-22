@@ -1,6 +1,7 @@
 import { Inertia } from "@inertiajs/inertia";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
+import { Link } from "@inertiajs/react";
 function Navegacion() {
 
  
@@ -35,7 +36,7 @@ function Navegacion() {
            
             <div>
                 <ul className=" h-[9vh] flex gap-3 text-[25px] items-center">
-                    <li><a href="#">Campañas</a></li>
+                    <li><Link href="/campañas">Campañas</Link></li>
                     <li><a href="#">Ventas</a></li>
                     <li><button onClick={cerrarSesion} className=" cursor-pointer">Cerrar Sesión</button></li>
                 </ul>

@@ -14,11 +14,7 @@ class LoginController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
-        $datos = Usuario::select('usuario','id_rol')->with('rol:id_rol,rol')->get();
-        return Inertia::render('Dashboard/Dashboard',['datos' => $datos]);
-    }
-
+    
     public function registrar(Request $request)
     {
         // Validar los datos recibidos
