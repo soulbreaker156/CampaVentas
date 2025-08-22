@@ -1,3 +1,4 @@
+import { CampaniaProps } from '@/components/interfaces/interfacesDatosTabla';
 import DT from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.min.css';
 import DataTable from 'datatables.net-react';
@@ -5,27 +6,6 @@ import { useEffect, useState } from 'react';
 import '../../../../css/tablastyle.css';
 
 DataTable.use(DT);
-
-interface AnioProps {
-    id_anio: number;
-    anio: number;
-}
-interface CampaniaP {
-    id_campania: number;
-    campania: string;
-    anio: AnioProps;
-}
-interface Sector {
-    id_sector: number;
-    sector: string;
-    campania: CampaniaP;
-}
-interface CampaniaProps {
-    totalOrdenes?: number;
-    totalVentas?: number;
-    fk_id_sector: number;
-    sector: Sector;
-}
 
 interface TablaProps {
     datos: CampaniaProps[];
@@ -43,7 +23,6 @@ function Tabla({ datos }: TablaProps) {
                 d.totalOrdenes ?? d.totalVentas ?? 'No hay datos',
             ]);
             setData(formatted);
-            console.log(formatted);
         }
     }, [datos]);
 
