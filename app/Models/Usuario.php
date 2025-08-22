@@ -19,6 +19,7 @@ class Usuario extends Authenticatable
         'usuario',
         'id_rol',
         'password',
+        'imagen_de_perfil',
     ];
 
     public $timestamps = true;
@@ -27,6 +28,10 @@ class Usuario extends Authenticatable
     public function rol()
     {
         return $this->belongsTo(Rol::class, 'id_rol', 'id_rol');
+    }
+    public function campanias()
+    {
+        return $this->hasMany(Campania::class, 'fk_id_usuario', 'id_usuario');
     }
 
 }
