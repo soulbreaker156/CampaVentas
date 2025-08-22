@@ -21,7 +21,8 @@ interface Sector {
     campania: CampaniaP;
 }
 interface CampaniaProps {
-    totalOrdenes: number;
+    totalOrdenes?: number;
+    totalVentas?: number;
     fk_id_sector: number;
     sector: Sector;
 }
@@ -31,11 +32,16 @@ interface TablaProps {
 }
 
 function Tabla({ datos }: TablaProps) {
-    const [data, setData] = useState<(string | number)[][]>([]);
+    const [data, setData] = useState<(string | number | undefined)[][]>([]);
     //Cargara los datos que vienen de la bd
     useEffect(() => {
         if (datos && datos.length > 0) {
-            const formatted = datos.map((d) => [d.sector.campania.campania, d.sector.sector, d.sector.campania.anio.anio, d.totalOrdenes]);
+            const formatted = datos.map((d) => [
+                d.sector.campania.campania,
+                d.sector.sector,
+                d.sector.campania.anio.anio,
+                d.totalOrdenes ?? d.totalVentas ?? 'No hay datos',
+            ]);
             setData(formatted);
             console.log(formatted);
         }
@@ -55,7 +61,7 @@ function Tabla({ datos }: TablaProps) {
                         `${celdaCSV(d.sector.campania.campania)};` +
                         `${celdaCSV(d.sector.sector)};` +
                         `${celdaCSV(d.sector.campania.anio.anio.toString())};` +
-                        `${celdaCSV(d.totalOrdenes.toString())}`,
+                        `${celdaCSV(d.totalOrdenes?.toString() ?? d.totalVentas?.toString() ?? 'No hay datos')}`,
                 ),
             ].join('\r\n');
 
@@ -105,7 +111,7 @@ function Tabla({ datos }: TablaProps) {
                   <td>${d.sector.campania.campania}</td>
                   <td>${d.sector.sector}</td>
                   <td>${d.sector.campania.anio.anio}</td>
-                  <td>${d.totalOrdenes}</td>
+                  <td>${d.totalOrdenes ?? d.totalVentas ?? 'No hay datos'}</td>
                 </tr>
               `,
                   )
@@ -129,7 +135,12 @@ function Tabla({ datos }: TablaProps) {
     const copiarAlPortaPapeles = () => {
         const text =
             'Campaña\tSector\tAño\tTota de Ordenes\n' +
-            datos.map((d) => `${d.sector.campania.campania}\t${d.sector.sector}\t${d.sector.campania.anio.anio}\t${d.totalOrdenes}`).join('\n');
+            datos
+                .map(
+                    (d) =>
+                        `${d.sector.campania.campania}\t${d.sector.sector}\t${d.sector.campania.anio.anio}\t${d.totalOrdenes ?? d.totalVentas ?? 'No hay datos'}`,
+                )
+                .join('\n');
 
         navigator.clipboard
             .writeText(text)
@@ -139,6 +150,14 @@ function Tabla({ datos }: TablaProps) {
             .catch(() => {
                 alert('Error al copiar los datos');
             });
+    };
+    // Cambia el nombre de la columna segun si trae datos de ordenes o ventas;
+    const cambioNombre = () => {
+        if (datos[0].totalOrdenes !== undefined) {
+            return <th>Total de Ordenes</th>;
+        } else {
+            return <th>Total de Ventas</th>;
+        }
     };
 
     return (
@@ -180,7 +199,7 @@ function Tabla({ datos }: TablaProps) {
                         <th>Campaña</th>
                         <th>Sector</th>
                         <th>Año</th>
-                        <th>Total de Ordenes</th>
+                        {cambioNombre()}
                     </tr>
                 </thead>
             </DataTable>
