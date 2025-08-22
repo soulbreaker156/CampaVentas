@@ -2,20 +2,30 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 import { Head, usePage } from "@inertiajs/react";
 import Tabla from "@/components/ui/tabla";
 
-interface Rol{
-    id_rol:number;
-    rol:string;
+interface AnioProps {
+    id_anio: number;
+    anio: number;
 }
-interface User{
-    usuario:string;
-    id_rol:number;
-    rol:Rol;
+interface CampaniaP{
+    id_campania: number;
+    campania: string;
+    anio:AnioProps
+}
+interface Sector{
+    id_sector:number;
+    sector:string;
+    campania: CampaniaP;
+}
+interface CampaniaProps{
+    totalOrdenes:number;
+    fk_id_sector:number;
+    sector:Sector;
 }
 
 
 //recibe los datos de la bd como prop
 function Dashboard() {
-    const {datos} = usePage<{datos: User[]}>().props;
+    const {datos} = usePage<{datos: CampaniaProps[]}>().props;
     console.log(datos);
     return (
         <>
