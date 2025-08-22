@@ -40,7 +40,7 @@ function Dashboard() {
                                 <button type="button" className="flex justify-start items-center w-[30%] bg-gray-300 rounded-[5px]">hola</button>
                                 <button type="button" className="flex justify-start items-center w-[30%] bg-gray-300 rounded-[5px]">adios</button>
                         </section>
-                        <section className="w-[95%] bg- h-[50vh] h-min-[40vh] bg-purple-50 p-5 text-black rounded-[10px]">
+                        <section className="w-[95%] bg- h-[50vh] h-min-[40vh] bg-purple-50 p-5 rounded-[10px]">
                             <Tabla datos={datos} />
                         </section>
                     </div>
