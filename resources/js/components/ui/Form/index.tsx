@@ -26,7 +26,7 @@ export default function Input() {
           text: flash?.message,
           icon: flash?.icon
         }).then(() => {
-          Inertia.visit('/campañas');
+          Inertia.visit('/ordenes');
         });
       }else if(flash?.icon === 'error'){
         Swal.fire({

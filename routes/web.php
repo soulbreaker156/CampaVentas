@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CampanasController;
+use App\Http\Controllers\OrdenesController;
 use App\Http\Middleware\VerificarAutenticacion;
 use App\Http\Controllers\VentasController;
 use Inertia\Inertia;
@@ -16,7 +16,7 @@ Route::get('/sinAcceso',function(){
 })->name('sin.acceso');
 
 Route::middleware([VerificarAutenticacion::class])->group(function () {
-Route::get('/campañas', [CampanasController::class, 'index'])->name('Dashboard');
+Route::get('/ordenes', [OrdenesController::class, 'index'])->name('Ordenes');
 Route::get('/ventas', [VentasController::class, 'index'])->name('Ventas');
 });
 
