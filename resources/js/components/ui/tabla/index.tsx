@@ -48,20 +48,23 @@ function Tabla({ datos }: TablaProps) {
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.setAttribute('download', datos[0].totalOrdenes !== undefined ? 'ReporteCampañas.csv' : 'ReporteVentas.csv');
+        link.setAttribute('download', datos[0].totalOrdenes !== undefined ? 'ReporteOrdenes.csv' : 'ReporteVentas.csv');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
     const exportarEnPDF = () => {
+        const tituloReporte = datos[0].totalOrdenes !== undefined ? 'Reporte de Ordenes' : 'Reporte de Ventas';
+        const tituloGeneral = datos[0].totalOrdenes !== undefined ? 'Lista de Ordenes' : 'Lista de Ventas';
+        const tituloEncabezado = datos[0].totalOrdenes !== undefined ? 'Total de Ordenes' : 'Total de Ventas';
         const printWindow = window.open('');
         if (printWindow) {
             const content = `
         <!DOCTYPE html>
         <html>
         <head>
-          <title>ReporteCampañas</title>
+          <title>${tituloReporte}</title>
           <style>
             body { font-family: Arial, sans-serif; margin: 20px; }
             h1 { color: #4facfe; text-align: center; }
@@ -72,7 +75,7 @@ function Tabla({ datos }: TablaProps) {
           </style>
         </head>
         <body>
-          <h1>Lista de Campañas</h1>
+          <h1>${tituloGeneral}</h1>
           <p>Generado el: ${new Date().toLocaleDateString('es-ES')}</p>
           <table>
             <thead>
@@ -80,7 +83,7 @@ function Tabla({ datos }: TablaProps) {
                 <th>Campaña</th>
                 <th>Sector</th>
                 <th>Año</th>
-                <th>Total de Ordenes</th>
+                <th>${tituloEncabezado}</th>
               </tr>
             </thead>
             <tbody>
@@ -113,8 +116,9 @@ function Tabla({ datos }: TablaProps) {
     };
 
     const copiarAlPortaPapeles = () => {
+        const tituloEncabezado = datos[0].totalOrdenes !== undefined ? 'Total de Ordenes' : 'Total de Ventas';
         const text =
-            'Campaña\tSector\tAño\tTota de Ordenes\n' +
+            `Campaña\tSector\tAño\t${tituloEncabezado}\n` +
             datos
                 .map(
                     (d) =>
