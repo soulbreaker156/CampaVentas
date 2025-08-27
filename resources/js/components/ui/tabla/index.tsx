@@ -2,6 +2,7 @@ import { CampaniaProps } from '@/components/interfaces/interfacesDatosTabla';
 import DT from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.min.css';
 import DataTable from 'datatables.net-react';
+import 'datatables.net-responsive-dt';
 import { useEffect, useState } from 'react';
 import '../../../../css/tablastyle.css';
 
@@ -70,7 +71,7 @@ function Tabla({ datos }: TablaProps) {
             h1 { color: #4facfe; text-align: center; }
             table { width: 100%; border-collapse: collapse; margin: 20px 0; }
             th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-            th { background-color: #4facfe; color: white; }
+            th { background-color: #4facfe; color: black; }
             tr:nth-child(even) { background-color: #f2f2f2; }
           </style>
         </head>
@@ -168,6 +169,7 @@ function Tabla({ datos }: TablaProps) {
                 options={{
                     paging: true,
                     searching: true,
+                    responsive: true,
                     ordering: true,
                     pageLength: 10,
                     lengthMenu: [

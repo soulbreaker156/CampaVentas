@@ -50,7 +50,7 @@
         "datatables.net-buttons-dt": "^3.2.4",
         "datatables.net-dt": "^2.3.2",
         "datatables.net-react": "^1.0.1",
-        "datatables.net-responsive-dt": "^3.0.5",
+        "datatables.net-responsive-dt": "^3.0.6",
         "globals": "^15.14.0",
         "jszip": "^3.10.1",
         "laravel-vite-plugin": "^2.0",

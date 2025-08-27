@@ -12,7 +12,7 @@ function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
                     adios
                 </button>
             </section>
-            <section className="bg- h-min-[40vh] h-[50vh] w-[95%] rounded-[10px] bg-purple-50 p-5">
+            <section className="bg- h-min-[40vh] h-[50%] w-[95%] rounded-[10px] bg-purple-50 p-5">
                 <Tabla datos={datos} />
             </section>
         </div>
