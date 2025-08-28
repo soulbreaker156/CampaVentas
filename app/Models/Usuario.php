@@ -9,7 +9,9 @@ class Usuario extends Authenticatable
     protected $table = 'usuarios';
     protected $primaryKey = 'id_usuario';
     protected $hidden = [
+        'id_usuario',
         'password',
+        'fk_id_rol',
         'remember_token',
         'created_at',
         'updated_at'

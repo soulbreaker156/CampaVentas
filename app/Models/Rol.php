@@ -9,6 +9,12 @@ class Rol extends Model
     protected $table = 'roles';
     protected $primaryKey = 'id_rol';
 
+    protected $hidden = [
+        'id_rol',
+        'created_at',
+        'updated_at',
+    ];
+
     protected $fillable = [
         'nombre',
     ];
