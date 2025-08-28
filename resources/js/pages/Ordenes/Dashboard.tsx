@@ -5,7 +5,8 @@ import { Head, usePage } from '@inertiajs/react';
 
 //recibe los datos de la bd como prop
 function Dashboard() {
-    const { datos } = usePage<{ datos: CampaniaProps[] }>().props;
+    const { datos } = usePage<{datos: CampaniaProps[];}>().props;
+
     return (
         <>
             <Head>
