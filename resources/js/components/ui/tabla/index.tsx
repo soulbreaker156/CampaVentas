@@ -39,7 +39,6 @@ function Tabla({ datos, filtroCampana, filtroSector }: TablaProps) {
                 d.sector.campania.anio.anio,
                 d.totalOrdenes ?? d.totalVentas ?? 'No hay datos',
             ]);
-            console.log(formatted);
             setData(formatted);
         }
     }, [datos, filtroCampana, filtroSector]);

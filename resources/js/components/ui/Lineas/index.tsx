@@ -7,7 +7,7 @@ interface LineasProps {
 }
 
 export default function Lineas({ datos,filtroCampana,filtroSector }: LineasProps) {
-    console.log(datos);
+   
      // Filtrar según los filtros
     const datosFiltrados = datos.filter(
         (d) => (filtroCampana === '' || d.sector.campania.campania === filtroCampana) && (filtroSector === '' || d.sector.sector === filtroSector),
