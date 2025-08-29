@@ -5,12 +5,14 @@ import Boton from '../ui/Boton';
 import Lineas from '../ui/Lineas';
 
 function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
+    // Estados para campañas y sectores
     const [campanas, setCampanas] = useState<string[]>([]);
     const[ sectores, setSectores] = useState<string[]>([]);
+    // Estados para los filtros seleccionados(vienen del componente Boton)
     const[filtroCampana, setFiltroCampana] = useState<string>('');
     const[filtroSector, setFiltroSector] = useState<string>('');
     
-
+    // Extraer nombres de campañas y sectores únicos para las listas de selección(componente Boton)
     useEffect(() => {
         const nombresCampanas = datos.map((campana) => campana.sector.campania.campania);
         setCampanas(nombresCampanas);
