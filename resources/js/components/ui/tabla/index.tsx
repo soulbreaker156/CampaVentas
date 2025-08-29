@@ -22,7 +22,7 @@ function Tabla({ datos, filtroCampana, filtroSector }: TablaProps) {
     // Fallback si no hay datos con los filtros
     if (!datosFiltrados.length) {
         return (
-            <div className="flex h-[100%] w-[100%] items-center justify-center rounded-xl bg-white p-4 text-black shadow-md">
+            <div className="flex h-[100%] w-[100%] items-center justify-center rounded-xl bg-white p-[20%] text-black shadow-md">
                 <p>No se encontraron resultados para los filtros seleccionados.</p>
             </div>
         );
