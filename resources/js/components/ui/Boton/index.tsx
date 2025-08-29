@@ -1,15 +1,18 @@
 export default function Boton({ datos, filtro }: { datos: string[]; filtro: (valor: string) => void }) {
+    // Eliminar duplicados y convertir a array
+    const data = Array.from(new Set(datos));
+
     let elegirTitulo: string = obtenerTitulo();
 
     function obtenerTitulo() {
-        if (datos.some((dato) => dato.toLowerCase().includes('campaña'))) {
+        if (data.some((dato) => dato.toLowerCase().includes('campaña'))) {
             return '--Elegir Campaña';
         } else {
             return '--Elegir Sector';
         }
     }
 
-    const listadoCampanas = datos.map((nombre, index) => {
+    const listadoCampanas = data.map((nombre, index) => {
         return (
             <option key={index} value={nombre}>
                 {nombre}
