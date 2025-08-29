@@ -29,7 +29,7 @@ function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
                 <Tabla datos={datos} filtroCampana={filtroCampana} filtroSector={filtroSector}/>
             </section>
             <section className="bg- h-min-[40vh] h-[80%] w-[95%] rounded-[10px] bg-purple-50 p-5">
-                <Lineas datos={datos} />
+                <Lineas datos={datos} filtroCampana={filtroCampana} filtroSector={filtroSector} />
             </section>
         </div>
     );
