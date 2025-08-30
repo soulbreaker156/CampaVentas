@@ -22,7 +22,8 @@ export default React.memo(function FormularioAgregar({ sectores }: { sectores: F
     useEffect(() => {
         if (sectores && sectores.length > 0) {
             const sectoresNombres = sectores.map((sector) => sector.sector);
-            setSector(sectoresNombres);
+            const sectoresSinRepetir= Array.from(new Set(sectoresNombres));
+            setSector(sectoresSinRepetir);
         }
     }, [sectores]);
 
