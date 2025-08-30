@@ -21,8 +21,8 @@ function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
         setSectores(nombresSectores);
     }, [datos]);
     return (
-        <div className="flex flex-col items-center justify-center gap-4">
-            <section className="h-min-[10vh] flex h-[10vh] w-[60%] justify-between gap-3 p-6">
+        <div className="flex flex-col items-center justify-center gap-4  w-[100%]">
+            <section className=" flex sm:w-[60%] md:w-[80%] w-[20%] sm:justify-between justify-center gap-3 p-6">
                 <Boton datos={campanas} filtro={setFiltroCampana} />
                 <Boton datos={sectores} filtro={setFiltroSector} />
                 <button
@@ -32,10 +32,10 @@ function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
                     <Link href={'/agregar'}>Agregar Campaña</Link>
                 </button>
             </section>
-            <section className="bg- h-min-[40vh] h-[50%] w-[95%] rounded-[10px] bg-purple-50 p-5">
+            <section className="sm:min-h-[40vh] sm:w-[95%] w-[100%] rounded-[10px] bg-purple-50 sm:p-5">
                 <Tabla datos={datos} filtroCampana={filtroCampana} filtroSector={filtroSector} />
             </section>
-            <section className="bg- h-min-[40vh] h-[80%] w-[95%] rounded-[10px] bg-purple-50 p-5">
+            <section className="min-h-[40vh] w-[95%] rounded-[10px] bg-purple-50 p-5">
                 <Lineas datos={datos} filtroCampana={filtroCampana} filtroSector={filtroSector} />
             </section>
         </div>
