@@ -13,6 +13,8 @@ class Campania extends Model
         'campania',
         'fk_id_usuario',
         'fk_id_anio',
+        'created_at',
+        'updated_at'
     ];
 
     public function usuario()

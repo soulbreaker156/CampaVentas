@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { useForm,usePage} from '@inertiajs/react';
 import {Inertia} from '@inertiajs/inertia';
 import { useEffect } from 'react';
-import {Link} from '@inertiajs/react';  
+ 
 
 
 export default function Input() {
