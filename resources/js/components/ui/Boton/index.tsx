@@ -25,7 +25,7 @@ export default function Boton({ datos, filtro }: { datos: string[]; filtro: (val
     };
     return (
         <>
-            <select name={elegirTitulo} id={elegirTitulo} onChange={handleChange} className="rounded-md border border-gray-300 bg-white sm:min-w-[40%]  px-1 sm:py-5 md:py-5 py-1 min-w-[400%] pr-2 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+            <select name={elegirTitulo} id={elegirTitulo} onChange={handleChange} className="rounded-md border border-gray-300 bg-white sm:min-w-[40%] sm:text-[19px]  px-1 sm:py-5 md:py-5 py-1 min-w-[400%] pr-2 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
                 <option value="">{elegirTitulo}</option>
                 {listadoCampanas}
             </select>

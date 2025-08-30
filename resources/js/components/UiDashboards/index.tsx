@@ -29,7 +29,7 @@ function UiDashboard({ datos }: { datos: CampaniaProps[] }) {
                     type="button"
                     className="rounded-md border border-gray-300 bg-white px-2 py-1 pr-2 text-gray-700 hover:border-gray-500 hover:bg-gray-300"
                 >
-                    <Link href={'/agregar'}>Agregar Campaña</Link>
+                    <Link href={'/agregar'} className='sm:text-[19px] text-[15px]'>Agregar Campaña</Link>
                 </button>
             </section>
             <section className="sm:min-h-[40vh] sm:w-[95%] w-[100%] rounded-[10px] bg-purple-50 sm:p-5">
